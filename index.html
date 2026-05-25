@@ -163,27 +163,70 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content
 .sl-br{bottom:4%;right:6%;transform:rotate(-8deg);text-align:right}
 
 /* about text */
-.about-text{font-size:.93rem;color:#555;line-height:1.88;max-width:680px}
+.about-text{
+  font-size:.93rem;
+  color:#555;
+  line-height:1.88;
+  max-width:680px
+}
+
 /* scrapbook video — always visible, hover plays */
 .scrap-video-wrap{
   position:relative;
-  width: 1000px;
-  height: 1000px;
+  width:1000px;
+  height:1000px;
   aspect-ratio:1/1;
-  border-radius:.4rem;overflow:hidden;
-  z-index:2;flex-shrink:0;cursor:default;
+  border-radius:.4rem;
+  overflow:hidden;
+  z-index:2;
+  flex-shrink:0;
+  cursor:default;
   background:transparent;
 }
-.scrap-video-wrap video{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;display:block;
-}
-.scrap-video-cover{display:none}
-.about-text p{margin-bottom:1rem}
-.about-text strong{color:var(--black);font-weight:600}
-.about-highlight{background:linear-gradient(to bottom,transparent 55%,rgba(250,210,60,.5) 55%);padding-bottom:1px}
-.see-examples{display:inline-flex;align-items:center;gap:.5rem;font-family:'Caveat',cursive;font-size:1.38rem;color:var(--blue);margin-top:.4rem;cursor:default;opacity:.9;transition:color .3s}
 
+.scrap-video-wrap video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.scrap-video-cover{
+  display:none
+}
+
+.about-text p{
+  margin-bottom:1rem
+}
+
+.about-text strong{
+  color:var(--black);
+  font-weight:600
+}
+
+.about-highlight{
+  background:linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(250,210,60,.5) 55%
+  );
+  padding-bottom:1px
+}
+
+.see-examples{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-family:'Caveat',cursive;
+  font-size:1.38rem;
+  color:var(--blue);
+  margin-top:.4rem;
+  cursor:default;
+  opacity:.9;
+  transition:color .3s
+}
 /* travel stories */
 .travel-stories{display:flex;flex-direction:column;gap:1.8rem}
 .t-story{display:flex;align-items:flex-start;gap:2rem}
