@@ -667,7 +667,8 @@
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 16px;
       min-height: 56px;
       padding: 15px 18px;
       font-size: clamp(15px, 1.35vw, 18px);
@@ -677,7 +678,7 @@
       text-transform: uppercase;
       color: var(--black);
       background: var(--white);
-      text-align: center;
+      text-align: left;
       overflow: hidden;
       z-index: 1;
       transition: color .25s ease, transform .25s ease;
@@ -716,6 +717,24 @@
     .skill-group[open] summary::before {
       height: 0;
     }
+
+    .skill-group summary::after {
+      content: "";
+      width: 13px;
+      height: 13px;
+      border-right: 3px solid var(--blue);
+      border-bottom: 3px solid var(--blue);
+      transform: rotate(45deg) translateY(-3px);
+      transition: transform .25s ease;
+      flex: 0 0 13px;
+      margin-right: 4px;
+    }
+
+    .skill-group[open] summary::after {
+      transform: rotate(225deg) translateY(-1px);
+      border-color: white;
+    }
+
 
     .skill-list {
       display: flex;
@@ -1265,13 +1284,13 @@
     }
 
     .campus-sticky-media .phone-outline {
-      filter: grayscale(100%);
-      transition: filter .38s ease;
+      filter: none;
+      transition: none;
       box-shadow: none;
     }
 
     .campus-sticky-media:hover .phone-outline {
-      filter: grayscale(0%);
+      filter: none;
     }
 
     .case-reveal .campus-sticky-media {
@@ -1454,13 +1473,13 @@
     }
 
     .persona-image img {
-      filter: grayscale(100%);
-      transition: filter .35s ease, transform .35s ease;
+      filter: none;
+      transition: none;
     }
 
     .persona-card:hover .persona-image img {
-      filter: grayscale(0%);
-      transform: scale(1.03);
+      filter: none;
+      transform: none;
     }
 
     .persona-info {
@@ -1560,6 +1579,40 @@
       width: min(100%, 280px);
     }
 
+    .video-control-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-scrubber {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity .25s ease;
+      z-index: 6;
+    }
+
+    .phone-outline:hover .video-scrubber,
+    .gallery-phone:hover .video-scrubber {
+      opacity: 1;
+    }
+
+    .video-scrubber input {
+      width: 100%;
+      accent-color: var(--black);
+    }
+
+    .video-scrubber input[type="range"] {
+      height: 3px;
+      background: transparent;
+    }
+
     .visual-system-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1614,7 +1667,7 @@
 
     .typography-stack {
       display: grid;
-      grid-template-columns: minmax(120px, 220px) 1fr;
+      grid-template-columns: minmax(170px, 300px) 1fr;
       gap: 22px;
       align-items: center;
     }
@@ -1622,8 +1675,8 @@
     .type-image-single {
       border: 1px solid var(--black);
       background: var(--white);
-      height: 145px;
-      padding: 12px;
+      height: 175px;
+      padding: 10px;
       overflow: hidden;
     }
 
@@ -1645,9 +1698,9 @@
 
     .type-name-list p {
       color: var(--blue);
-      font-size: clamp(18px, 2vw, 28px);
+      font-size: clamp(15px, 1.45vw, 21px);
       line-height: 1;
-      letter-spacing: -.015em;
+      letter-spacing: -.01em;
       font-weight: 900;
       text-transform: uppercase;
     }
@@ -1671,20 +1724,22 @@
     .logo-box {
       border: 1px solid var(--black);
       background: var(--white);
-      height: 220px;
+      min-height: 310px;
+      aspect-ratio: 1.35 / 1;
       display: grid;
       place-items: center;
-      padding: 28px;
+      padding: 34px;
+      overflow: hidden;
     }
 
     .logo-box img {
       object-fit: contain;
-      filter: grayscale(100%);
-      transition: filter .3s ease;
+      filter: none;
+      transition: none;
     }
 
     .logo-box:hover img {
-      filter: grayscale(0%);
+      filter: none;
     }
 
     .logo-arrow {
@@ -2350,11 +2405,11 @@
       }
 
       .skill-group summary {
-        justify-content: center;
+        justify-content: space-between;
         min-height: 50px;
         padding: 14px;
         font-size: 16px;
-        text-align: center;
+        text-align: left;
         word-break: keep-all;
       }
 
@@ -2479,7 +2534,7 @@
       }
 
       .type-image-single {
-        height: 130px;
+        height: 160px;
       }
 
       .logo-evolution,
@@ -2788,7 +2843,7 @@
       <div class="projects-head">
         <h2>Select<br>A Case Study</h2>
         <p class="scroll-note">
-          Scroll sideways to explore selected projects
+          Scroll sideways to explore
           <span class="scroll-icon"></span>
         </p>
       </div>
@@ -3154,7 +3209,12 @@
 
         <div class="iphone-video-wrap">
           <div class="iphone-frame phone-outline">
-            <video class="scroll-video click-toggle-video" src="HitBot.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="video-control-wrap">
+              <video class="scroll-video click-toggle-video controlled-video" src="HitBot.mp4" muted loop playsinline preload="metadata"></video>
+              <div class="video-scrubber">
+                <input class="video-range" type="range" min="0" max="100" value="0" aria-label="Video progress">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3241,8 +3301,13 @@
           <div class="gallery-carousel">
             <div class="gallery-grid">
               <div class="gallery-phone gallery-video">
-                <video class="click-toggle-video" src="CampusPlusGalleryVideo.mp4" muted loop playsinline preload="metadata"></video>
-                <span class="play-indicator"></span>
+                <div class="video-control-wrap">
+                  <video class="click-toggle-video controlled-video" src="CampusPlusGalleryVideo.mp4" muted loop playsinline preload="metadata"></video>
+                  <div class="video-scrubber">
+                    <input class="video-range" type="range" min="0" max="100" value="0" aria-label="Video progress">
+                  </div>
+                  <span class="play-indicator"></span>
+                </div>
               </div>
 
               <div class="gallery-phone">
@@ -3776,10 +3841,38 @@
       scrollVideos.forEach((video) => videoObserver.observe(video));
     }
 
+    const controlledVideos = document.querySelectorAll(".controlled-video");
+
+    controlledVideos.forEach((video) => {
+      const wrap = video.closest(".video-control-wrap");
+      const range = wrap ? wrap.querySelector(".video-range") : null;
+      if (!range) return;
+
+      video.addEventListener("timeupdate", () => {
+        if (!video.duration || range.dataset.dragging === "true") return;
+        range.value = (video.currentTime / video.duration) * 100;
+      });
+
+      range.addEventListener("input", () => {
+        range.dataset.dragging = "true";
+        if (video.duration) {
+          video.currentTime = (Number(range.value) / 100) * video.duration;
+        }
+      });
+
+      range.addEventListener("change", () => {
+        delete range.dataset.dragging;
+      });
+
+      range.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+    });
+
     const toggleVideos = document.querySelectorAll(".click-toggle-video");
 
     toggleVideos.forEach((video) => {
-      video.addEventListener("click", () => {
+      video.addEventListener("click", (event) => {
         const videoCard = video.closest(".gallery-phone");
 
         if (video.paused) {
