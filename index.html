@@ -2230,6 +2230,155 @@
       box-shadow: none;
     }
 
+
+
+    .brigent-card {
+      width: min(78vw, 500px);
+      margin-top: 70px;
+    }
+
+    .brigent-card:hover {
+      width: min(86vw, 650px);
+    }
+
+    .brigent-page .case-hero {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .brigent-page .case-desc {
+      max-width: 640px;
+    }
+
+    .brigent-content {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 58px;
+    }
+
+    .brigent-section {
+      width: 100%;
+      margin-top: 22px;
+    }
+
+    .brigent-section:first-child {
+      margin-top: 0;
+    }
+
+    .brigent-top-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .brigent-square,
+    .brigent-wide,
+    .brigent-meaning-image,
+    .brigent-mockup {
+      border: 1px solid var(--black);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .brigent-square {
+      aspect-ratio: 1 / 1;
+    }
+
+    .brigent-square img,
+    .brigent-square video,
+    .brigent-wide img,
+    .brigent-meaning-image img,
+    .brigent-mockup img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: none;
+      transition: none;
+    }
+
+    .brigent-square:hover img,
+    .brigent-square:hover video,
+    .brigent-wide:hover img,
+    .brigent-meaning-image:hover img,
+    .brigent-mockup:hover img {
+      filter: none;
+      transform: none;
+    }
+
+    .brigent-wide {
+      width: 100%;
+      height: clamp(120px, 14vw, 190px);
+    }
+
+    .brigent-wide img {
+      object-fit: contain;
+      padding: 18px;
+    }
+
+    .brigent-meaning-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .brigent-meaning-copy {
+      border: 1px solid var(--black);
+      padding: clamp(22px, 3.5vw, 44px);
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      min-height: 280px;
+    }
+
+    .brigent-meaning-copy p {
+      font-size: clamp(18px, 2.1vw, 30px);
+      line-height: 1.22;
+      letter-spacing: -.015em;
+      font-weight: 500;
+      max-width: 620px;
+    }
+
+    .brigent-meaning-copy strong {
+      font-weight: 900;
+    }
+
+    .brigent-meaning-image {
+      min-height: 280px;
+    }
+
+    .brigent-meaning-image img {
+      object-fit: contain;
+      padding: 18px;
+    }
+
+    .brigent-palette-box {
+      border: 1px solid var(--black);
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .brigent-palette-box .color-swatches {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .brigent-mockups-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .brigent-mockup {
+      min-height: clamp(260px, 28vw, 430px);
+    }
+
+    .brigent-mockup img {
+      object-fit: cover;
+    }
+
     @media (max-width: 1100px) {
       .hero-inner {
         width: min(960px, 100%);
@@ -2302,6 +2451,47 @@
       .case-side {
         position: relative;
         top: auto;
+      }
+
+
+      .brigent-content {
+        padding-top: 38px;
+      }
+
+      .brigent-top-grid,
+      .brigent-meaning-row,
+      .brigent-mockups-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brigent-square {
+        aspect-ratio: 1 / 1;
+      }
+
+      .brigent-wide {
+        height: clamp(96px, 28vw, 150px);
+      }
+
+      .brigent-meaning-copy,
+      .brigent-meaning-image {
+        min-height: auto;
+      }
+
+      .brigent-meaning-image {
+        aspect-ratio: 1.15 / 1;
+      }
+
+      .brigent-palette-box .color-swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brigent-mockup {
+        min-height: auto;
+        aspect-ratio: 1.15 / 1;
+      }
+
+      .brigent-mockup:first-child {
+        aspect-ratio: 1.35 / 1;
       }
     }
 
@@ -2380,6 +2570,35 @@
 
       .page {
         padding: 18px;
+      }
+
+
+      .brigent-content {
+        padding-top: 30px;
+      }
+
+      .brigent-section {
+        margin-top: 14px;
+      }
+
+      .brigent-top-grid,
+      .brigent-meaning-row,
+      .brigent-mockups-grid {
+        gap: 14px;
+      }
+
+      .brigent-meaning-copy {
+        padding: 22px;
+      }
+
+      .brigent-meaning-copy p {
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .brigent-wide img,
+      .brigent-meaning-image img {
+        padding: 12px;
       }
 
   
@@ -3897,173 +4116,21 @@
     }
 
 
-    /* Brigent case study */
-    .project-card.brigent-card,
-    .project-card[data-project="brigent"] {
+
+    .project-track .project-card:nth-child(2) {
+      width: min(72vw, 420px);
+      margin-top: 70px;
+    }
+
+    .project-track .project-card:nth-child(3) {
       width: min(78vw, 500px);
+      margin-top: 20px;
     }
 
-    .brigent-case-wrap {
-      max-width: 1240px;
-      margin: 0 auto;
-      width: 100%;
-      padding-top: 58px;
+    .project-track .project-card:nth-child(2):hover,
+    .project-track .project-card:nth-child(3):hover {
+      width: min(86vw, 650px);
     }
-
-    .brigent-media-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
-      gap: 18px;
-      align-items: stretch;
-      margin-bottom: 18px;
-    }
-
-    .brigent-media-box,
-    .brigent-info-box {
-      border: 1px solid var(--black);
-      background: var(--white);
-      overflow: hidden;
-    }
-
-    .brigent-media-box img,
-    .brigent-media-box video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: none;
-      transition: none;
-    }
-
-    .brigent-media-box:hover img,
-    .brigent-media-box:hover video {
-      filter: none;
-      transform: none;
-    }
-
-    .brigent-square {
-      aspect-ratio: 1 / 1;
-    }
-
-    .brigent-rectangle {
-      aspect-ratio: 16 / 9;
-    }
-
-    .brigent-logo-strip {
-      aspect-ratio: 6 / 1.65;
-      margin-bottom: 18px;
-    }
-
-    .brigent-info-box {
-      background: #F4F2ED;
-      padding: clamp(24px, 4.8vw, 58px);
-      margin-bottom: 18px;
-      display: grid;
-      justify-items: center;
-      text-align: center;
-      gap: 28px;
-    }
-
-    .brigent-info-box .color-swatches {
-      width: min(100%, 680px);
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .brigent-info-text {
-      max-width: 760px;
-      font-size: clamp(16px, 1.55vw, 21px);
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    .brigent-info-text strong {
-      font-weight: 900;
-    }
-
-    .brigent-meaning-image {
-      width: min(100%, 780px);
-      aspect-ratio: 16 / 9;
-      border: 1px solid var(--black);
-      background: var(--white);
-      overflow: hidden;
-    }
-
-    .brigent-icons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .brigent-mockups-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr 1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .brigent-mockup-box {
-      aspect-ratio: 1 / 1;
-    }
-
-    .brigent-mockup-wide {
-      aspect-ratio: 1.35 / 1;
-    }
-
-    @media (max-width: 950px) {
-      .brigent-case-wrap {
-        padding-top: 42px;
-      }
-
-      .brigent-media-grid,
-      .brigent-icons-grid,
-      .brigent-mockups-grid {
-        gap: 14px;
-      }
-
-      .brigent-mockups-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .brigent-mockup-wide,
-      .brigent-mockup-box {
-        aspect-ratio: 4 / 3;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .brigent-media-grid,
-      .brigent-icons-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .brigent-logo-strip,
-      .brigent-rectangle,
-      .brigent-meaning-image {
-        aspect-ratio: 4 / 3;
-      }
-
-      .brigent-info-box .color-swatches {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .brigent-info-box {
-        padding: 22px;
-        gap: 22px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brigent-info-box .color-swatches {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-
-      .brigent-info-text {
-        font-size: 15px;
-      }
-    }
-
   </style>
 </head>
 
@@ -4310,7 +4377,7 @@
       <div class="horizontal-wrap">
         <div class="project-track">
 
-          <a href="#case-campus-plus" class="project-card kit-card">
+          <a href="#case-campus-plus" class="project-card kit-card" data-project="campus-plus">
             <div class="project-number">[01]</div>
 
             <div>
@@ -4357,7 +4424,7 @@
             </div>
           </a>
 
-          <a href="#case-kit-for-managers" class="project-card kit-card">
+          <a href="#case-kit-for-managers" class="project-card kit-card" data-project="kit-for-managers">
             <div class="project-number">[03]</div>
 
             <div>
@@ -4380,74 +4447,6 @@
             </div>
           </a>
 
-          <a href="#case-maskit" class="project-card">
-            <div class="project-number">[04]</div>
-
-            <div>
-              <div class="project-image">
-                <img src="project-3.jpg" alt="MaskIt project preview">
-              </div>
-
-              <h3>MaskIt</h3>
-              <p>A natural face masks website with categories, gallery, contact form and a clean visual structure.</p>
-              <div class="project-tags">
-                <span>Web Design</span>
-                <span>UI</span>
-                <span>Interaction</span>
-              </div>
-            </div>
-
-            <div class="project-meta">
-              <span>Case Study</span>
-              <span>Open →</span>
-            </div>
-          </a>
-
-          <a href="#case-studit" class="project-card">
-            <div class="project-number">[05]</div>
-
-            <div>
-              <div class="project-image">
-                <img src="project-4.jpg" alt="Studit project preview">
-              </div>
-
-              <h3>Studit</h3>
-              <p>An AI-based learning planner for students preparing for exams, with personalized schedules and study paths.</p>
-              <div class="project-tags">
-                <span>UX/UI</span>
-                <span>AI Concept</span>
-                <span>Education</span>
-              </div>
-            </div>
-
-            <div class="project-meta">
-              <span>Case Study</span>
-              <span>Open →</span>
-            </div>
-          </a>
-
-          <a href="#case-bip" class="project-card">
-            <div class="project-number">[06]</div>
-
-            <div>
-              <div class="project-image">
-                <img src="project-5.jpg" alt="BIP project preview">
-              </div>
-
-              <h3>BIP</h3>
-              <p>A playful payment app concept for interplanetary transfers, inspired by fast and simple payment flows.</p>
-              <div class="project-tags">
-                <span>App Design</span>
-                <span>Concept</span>
-                <span>Prototype</span>
-              </div>
-            </div>
-
-            <div class="project-meta">
-              <span>Case Study</span>
-              <span>Open →</span>
-            </div>
-          </a>
         </div>
       </div>
     </section>
@@ -4823,12 +4822,12 @@
 
       <div class="case-next">
         <a href="#projects">Back to projects</a>
-        <a href="#case-brigent">Next project →</a>
+        <a href="#case-kit-for-managers">Next project →</a>
       </div>
     </div>
   </section>
 
-  <section id="case-brigent" class="case-page">
+  <section id="case-brigent" class="case-page brigent-page">
     <a href="#projects" class="case-back">← Back to projects</a>
 
     <div class="case-hero case-reveal">
@@ -4839,7 +4838,6 @@
 
       <div>
         <p class="case-desc">Branding for a company that builds AI agents to automate workflows and empower modern teams.</p>
-
         <div class="case-tags-row">
           <span>Brand Design</span>
           <span>UI Design</span>
@@ -4849,76 +4847,75 @@
       </div>
     </div>
 
-    <div class="brigent-case-wrap">
-      <div class="brigent-media-grid case-reveal">
-        <div class="brigent-media-box brigent-square">
-          <video class="click-toggle-video controlled-video" src="BrigentLogoVideo.mp4" muted loop autoplay playsinline preload="metadata"></video>
+    <div class="brigent-content">
+      <div class="brigent-section brigent-top-grid case-reveal">
+        <div class="brigent-square">
+          <video class="scroll-video click-toggle-video" src="BrigentLogoVideo.mp4" muted loop playsinline preload="metadata" aria-label="Brigent logo motion video"></video>
         </div>
 
-        <div class="brigent-media-box brigent-rectangle">
+        <div class="brigent-square">
+          <img src="BrigentIcons.png" alt="Brigent icons">
+        </div>
+
+        <div class="brigent-square">
           <img src="BrigentPattern.png" alt="Brigent pattern">
         </div>
       </div>
 
-      <div class="brigent-media-box brigent-logo-strip case-reveal">
+      <div class="brigent-section brigent-wide case-reveal">
         <img src="BrigentLogo.png" alt="Brigent logo">
       </div>
 
-      <div class="brigent-info-box case-reveal">
-        <div class="color-swatches">
-          <div class="swatch-card">
-            <div class="swatch-color" style="--case-color:#201A9A"></div>
-            <span>#201A9A</span>
-          </div>
-          <div class="swatch-card">
-            <div class="swatch-color" style="--case-color:#FF677C"></div>
-            <span>#FF677C</span>
-          </div>
-          <div class="swatch-card">
-            <div class="swatch-color" style="--case-color:#D6A5FE"></div>
-            <span>#D6A5FE</span>
-          </div>
-          <div class="swatch-card">
-            <div class="swatch-color" style="--case-color:#F4F2ED"></div>
-            <span>#F4F2ED</span>
-          </div>
+      <div class="brigent-section brigent-meaning-row case-reveal">
+        <div class="brigent-meaning-copy">
+          <p><strong>The name BRIGENT is built from 2 words:<br>Bridge and Agent.</strong><br>A bridge between businesses and AI.<br>Helping companies automate workflows, improve efficiency, and unlock new possibilities through intelligent agents.</p>
         </div>
-
-        <p class="brigent-info-text"><strong>The name BRIGENT is built from 2 words: Bridge and Agent.</strong><br>
-        A bridge between businesses and AI.<br>
-        Helping companies automate workflows, improve efficiency, and unlock new possibilities through intelligent agents.</p>
 
         <div class="brigent-meaning-image">
           <img src="BrigentLogoMeaning.png" alt="Brigent logo meaning">
         </div>
       </div>
 
-      <div class="brigent-icons-grid case-reveal">
-        <div class="brigent-media-box brigent-square">
-          <img src="BrigentChatIcon.png" alt="Brigent chat icon">
-        </div>
-        <div class="brigent-media-box brigent-square">
-          <img src="BrigentArrowIcon.png" alt="Brigent arrow icon">
-        </div>
-        <div class="brigent-media-box brigent-square">
-          <img src="BrigentTickIcon.png" alt="Brigent tick icon">
+      <div class="brigent-section brigent-palette-box case-reveal">
+        <div class="color-swatches">
+          <div class="swatch-card">
+            <div class="swatch-color" style="--case-color:#201A9A"></div>
+            <span>#201A9A</span>
+          </div>
+
+          <div class="swatch-card">
+            <div class="swatch-color" style="--case-color:#FF677C"></div>
+            <span>#FF677C</span>
+          </div>
+
+          <div class="swatch-card">
+            <div class="swatch-color" style="--case-color:#D6A5FE"></div>
+            <span>#D6A5FE</span>
+          </div>
+
+          <div class="swatch-card">
+            <div class="swatch-color" style="--case-color:#F4F2ED"></div>
+            <span>#F4F2ED</span>
+          </div>
         </div>
       </div>
 
-      <div class="brigent-mockups-grid case-reveal">
-        <div class="brigent-media-box brigent-mockup-wide">
+      <div class="brigent-section brigent-mockups-grid case-reveal">
+        <div class="brigent-mockup">
           <img src="BrigentEmployeeCard.png" alt="Brigent employee card mockup">
         </div>
-        <div class="brigent-media-box brigent-mockup-box">
+
+        <div class="brigent-mockup">
           <img src="BrigentBagDesign.png" alt="Brigent bag design mockup">
         </div>
-        <div class="brigent-media-box brigent-mockup-box">
+
+        <div class="brigent-mockup">
           <img src="BrigentBottle.png" alt="Brigent bottle mockup">
         </div>
       </div>
 
       <div class="case-next">
-        <a href="#projects">Back to projects</a>
+        <a href="#case-campus-plus">← Previous project</a>
         <a href="#case-kit-for-managers">Next project →</a>
       </div>
     </div>
@@ -5073,7 +5070,7 @@
         </div>
       </div>
 
-      <div class="case-next"><a href="#projects">Back to projects</a><a href="#case-roomie">Next project →</a></div>
+      <div class="case-next"><a href="#case-brigent">← Previous project</a><a href="#projects">Back to projects</a></div>
     </div>
   </section>
 
@@ -5120,7 +5117,7 @@
 
     <div class="case-hero">
       <div>
-        <div class="case-number">[04]</div>
+        <div class="case-number">[03]</div>
         <h1 class="case-title">MaskIt</h1>
       </div>
 
@@ -5158,7 +5155,7 @@
 
     <div class="case-hero">
       <div>
-        <div class="case-number">[05]</div>
+        <div class="case-number">[04]</div>
         <h1 class="case-title">Studit</h1>
       </div>
 
@@ -5196,7 +5193,7 @@
 
     <div class="case-hero">
       <div>
-        <div class="case-number">[06]</div>
+        <div class="case-number">[05]</div>
         <h1 class="case-title">BIP</h1>
       </div>
 
@@ -5397,7 +5394,6 @@
     const casePages = document.querySelectorAll(".case-page");
     const caseHashes = [
       "#case-campus-plus",
-      "#case-brigent",
       "#case-kit-for-managers",
       "#case-roomie",
       "#case-maskit",
